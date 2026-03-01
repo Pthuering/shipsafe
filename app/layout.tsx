@@ -14,6 +14,7 @@ import { siteConfig } from "@/lib/config";
 import "@/styles/globals.css";
 import { AnalyticsInit } from "@/components/AnalyticsInit";
 
+/** @type {import('next').Metadata} */
 export const metadata: Metadata = {
   title: siteConfig.metaTitle,
   description: siteConfig.metaDescription,
@@ -37,6 +38,15 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  keywords: [
+    "cybersecurity", "ship safety", "maritime security", "shipsafe", "data protection", "secure shipping",
+  ],
+  author: "Philipp Rhuering",
+  geo: {
+    region: "DE",
+    placename: "Germany",
+    position: "51.1657;10.4515",
   },
 };
 
@@ -80,6 +90,19 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        {/* Structured Data for Local Business */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": siteConfig.name,
+            "url": siteConfig.url,
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "DE",
+            },
+          })}
+        </script>
       </head>
       <body className="font-sans">
         <AnalyticsInit />
