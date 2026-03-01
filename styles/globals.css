@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Globale Styles für ShipSafe Landing Page.
+ * Design Tokens aus dem Produktstrategie-Dokument:
+ * - Primär: Slate 900 (#0F172A)
+ * - Grün:   Green 500 (#22C55E) → "sicher/bestanden"
+ * - Orange: Orange 500 (#F97316) → CTAs, Urgency
+ * - BG:     #FAFAFA, Cards: #FFFFFF
+ */
+
+@layer base {
+  :root {
+    --color-primary: #0F172A;
+    --color-green: #22C55E;
+    --color-orange: #F97316;
+    --color-bg: #FAFAFA;
+    --color-card: #FFFFFF;
+    --color-subtle: #64748B;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#FAFAFA] text-slate-900 antialiased;
+  }
+}
+
+@layer components {
+  /* Primärer CTA-Button Stil — Orange für maximale Conversion */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+      bg-orange-500 hover:bg-orange-600 active:bg-orange-700
+      text-white font-semibold
+      px-6 py-3 rounded-lg
+      transition-all duration-200
+      shadow-sm hover:shadow-md
+      focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2;
+  }
+
+  /* Sekundärer Button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+      bg-white hover:bg-slate-50
+      text-slate-900 font-semibold
+      px-6 py-3 rounded-lg
+      border border-slate-200
+      transition-all duration-200
+      focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2;
+  }
+
+  /* Card-Stil */
+  .card {
+    @apply bg-white rounded-xl border border-slate-100
+      shadow-sm p-6;
+  }
+
+  /* Section Wrapper für konsistentes Spacing */
+  .section-wrapper {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
+  }
+}
